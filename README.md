@@ -17,5 +17,7 @@ A meme that captures how I currently feel about my university studies is ![](htt
 * A gif of a bird breed I like the most is ![](https://64.media.tumblr.com/548212bf476d991c904075bb765ddb86/92387b3b094540d3-e8/s640x960/1cd221c3a1ae4372a46e936e0d227b86a04c3635.gif)
 
 
+(https://github.com/meimatsuki9/stats220)
+
 
 
