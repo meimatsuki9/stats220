@@ -14,6 +14,7 @@ body {
 }
 
 ```
+![Bus Image](https://ourauckland.aucklandcouncil.govt.nz/media/fvxla52b/bus.jpg)
 
 ## Bus trips to campus
 - This dynamic report tracks and analyzes the dataset `Bus trips to campus`. The analysis looks at how long the bus took to arrive after the scheduled time, whether it was a double decker bus, and how long the bus ride was.It also includes summary statistics like minimum, maximum, and mean values, as well as graphical representations through bar charts.
