@@ -1,0 +1,64 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  background-color: #f0f8ff;  /* light baby blue background */
+}
+
+```
+
+## Bus trips to campus
+- This dynamic report tracks and analyzes the dataset `Bus trips to campus`. The analysis looks at how long the bus took to arrive after the scheduled time, whether it was a double decker bus, and how long the bus ride was.It also includes summary statistics like minimum, maximum, and mean values, as well as graphical representations through bar charts.
+
+## The summary values of how late the bus was:
+
+```{r}
+# Load data
+library(tidyverse)
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTUc3KZwzFNBajlDoR4Ki5SAIUa5zYkymu1tIN_Ny-gIgqyVNlijObybIgsBL9y-DmjwVvA2ABAxTS2/pub?output=csv")
+
+latest_data <- logged_data %>%
+  rename(
+    how_late_the_bus_was = "How late was the bus? (in minutes)",
+    double_decker = "Was the bus a double decker bus?",
+    bus_ride_length = "How long was the bus ride? (in mins)"
+  )
+
+# Get summary values
+min_value <- min(latest_data$how_late_the_bus_was, na.rm = TRUE)
+max_value <- max(latest_data$how_late_the_bus_was, na.rm = TRUE)
+mean_value <- mean(latest_data$how_late_the_bus_was, na.rm = TRUE)
+
+comment_min <- paste("The minimum value in the dataset is:", min_value)
+comment_max <- paste("The maximum value in the dataset is:", max_value)
+comment_mean <- paste("The mean value of the dataset is:", mean_value)
+
+comment_min
+comment_max
+comment_mean
+
+# Bar chart 1: Seeing if the bus was a double decker
+ggplot(latest_data, aes(x = double_decker)) +
+  geom_bar(width = 0.3, fill = "skyblue") +
+  labs(title = "Bar Chart 1: Was the bus a double decker", x = "Category", y = "Frequency") +
+  theme_minimal()
+
+# Bar chart 2: Measuring the length of the bus ride
+ggplot(latest_data, aes(x = bus_ride_length)) +
+  geom_bar(fill = "skyblue") +
+  labs(title = "Bar Chart 2: How long was the bus ride?", x = "Time", y = "Frequency") +
+  theme_minimal()
+
+
+
+```
+
